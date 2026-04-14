@@ -2,7 +2,7 @@ name: Build Kizzy
 
 on:
   push:
-    branches: [ "master", "testing" ]
+    branches: [ "Temp" ]
   workflow_dispatch:
 
 jobs:
