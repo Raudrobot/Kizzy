@@ -39,3 +39,12 @@ local.properties
 .idea/navEditor.xml
 /.idea/
 app/release.jks
+*.jks
+*.keystore
+*.p12
+*.jceks
+*.signing
+*.pk8
+*.pem
+signing.properties
+release-key.properties
