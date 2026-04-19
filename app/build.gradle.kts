@@ -36,7 +36,16 @@ android {
         // This is for the Google Play Store if we ever decide to publish there
         includeInBundle = true
     }
+    applicationVariants.all {
+	        outputs.all {
+	            val output = this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
+            val version = libs.versions.version.name.get()
+            val code = libs.versions.version.code.get()
+            output.outputFileName = "Kizzy-v${version}-${code}.apk"
+        }
+    }
 }
+
 dependencies {
     implementation (projects.domain)
     implementation (projects.theme)
