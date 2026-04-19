@@ -3,8 +3,6 @@
  *  ******************************************************************
  *  *  * Copyright (C) 2022
  *  *  * Game.kt is part of Kizzy
- *  *  *  and can not be copied and/or distributed without the express
- *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
  *
  *
@@ -15,8 +13,6 @@
  *  ******************************************************************
  *  *  * Copyright (C) 2022
  *  *  * Game.kt is part of Kizzy
- *  *  *  and can not be copied and/or distributed without the express
- *  *  * permission of yzziK(Vaibhav)
  *  *  *****************************************************************
  *
  *
