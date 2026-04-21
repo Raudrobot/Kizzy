@@ -73,18 +73,23 @@ open class DiscordWebSocketImpl(
         }
     }
 
-    private suspend fun handleClose(){
-        heartbeatJob?.cancel()
+    private suspend fun handleClose() {
+	    heartbeatJob?.cancel()
         connected = false
         val close = websocket?.closeReason?.await()
-        logger.w("Gateway","Closed with code: ${close?.code}, " +
+    
+        val canReconnect = close?.code?.toInt() == 4000 || close?.code?.toInt() == 1006
+
+        logger.w("Gateway", "Closed with code: ${close?.code}, " +
                 "reason: ${close?.message}, " +
-                "can_reconnect: ${close?.code?.toInt() == 4000}")
-        if (close?.code?.toInt() == 4000 || close?.code?.toInt() == 1006) {
-            delay(5.seconds)
+                "can_reconnect: $canReconnect")
+
+        if (canReconnect) {
+	            delay(5.seconds)
             connect()
-        } else
-            close()
+        } else {
+	            close()
+        }
     }
 
     private suspend fun onMessage(payload: Payload) {
