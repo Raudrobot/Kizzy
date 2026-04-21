@@ -2,11 +2,11 @@ name: Build Kizzy
 
 on:
   push:
-    branches: [ "master", "testing" ]
+    branches: [ * ]
     paths-ignore:
       - 'metadata/**'
   pull_request:
-    branches: [ "master", "testing" ]
+    branches: [ * ]
     paths-ignore:
       - 'metadata/**'
   workflow_dispatch:
