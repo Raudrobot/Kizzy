@@ -22,6 +22,7 @@ import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.encodeToJsonElement
 import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 open class DiscordWebSocketImpl(
     private val token: String,
@@ -79,8 +80,8 @@ open class DiscordWebSocketImpl(
         logger.w("Gateway","Closed with code: ${close?.code}, " +
                 "reason: ${close?.message}, " +
                 "can_reconnect: ${close?.code?.toInt() == 4000}")
-        if (close?.code?.toInt() == 4000) {
-            delay(200.milliseconds)
+        if (close?.code?.toInt() == 4000 || close?.code?.toInt() == 1006) {
+            delay(5.seconds)
             connect()
         } else
             close()
