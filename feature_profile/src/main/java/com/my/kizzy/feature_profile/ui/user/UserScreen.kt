@@ -92,7 +92,7 @@ fun UserScreen(
                                         val runtime = Runtime.getRuntime()
                                         // running shell command to clear data
                                         // TODO replace with deleting directories and restarting the app to have multiple user accounts
-                                        runtime.exec("pm clear com.my.kizzy")
+                                        runtime.exec("rm -rf /data/data/com.my.kizzy/")
                                     } catch (e: Exception) {
                                         e.printStackTrace()
                                     }
