@@ -276,4 +276,12 @@ object Prefs {
 
         set(ENABLED_EXPERIMENTAL_APPS, Json.encodeToString(enabledPackages))
     }
+
+    fun clearSession() {
+        remove(TOKEN)
+        remove(USER_DATA)
+        remove(USER_ID)
+        remove(USER_BIO)
+        remove(USER_NITRO)
+    }
 }
